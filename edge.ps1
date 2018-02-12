@@ -1,3 +1,10 @@
+#-----------------------------------------------------------------------------
+#
+# This file is for dev use ONLY
+# No packages that are part of the final image should be installed from here
+#
+#-----------------------------------------------------------------------------
+
 $ErrorActionPreference = "Stop"
 
 function Install-ChocoPackage($package) {
