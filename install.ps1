@@ -61,3 +61,6 @@ Install-ChocoPackage jq
 
 # Kubernetes cli
 Install-ChocoPackage kubernetes-cli
+
+# Docker client
+Install-ChocoPackage docker
