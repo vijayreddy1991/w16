@@ -27,7 +27,7 @@ Install-ChocoPackage nodejs-lts
 Install-ChocoPackage git-lfs
 
 # Java 8
-Install-ChocoPackage jdk8
+Install-ChocoPackage jdk9
 
 # Ruby 2.x
 Install-ChocoPackage ruby
