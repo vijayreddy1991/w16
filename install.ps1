@@ -73,7 +73,7 @@ echo "================= Intalling Shippable CLIs ================="
 
 git clone https://github.com/Shippable/node.git nodeRepo
 .\nodeRepo\shipctl\x86_64\WindowsServer_2016\install.ps1
-rm -rf nodeRepo
+Remove-Item .\nodeRepo -Force -Recurse
 
 echo "Installed Shippable CLIs successfully"
 echo "-------------------------------------"
