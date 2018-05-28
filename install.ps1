@@ -22,19 +22,23 @@ Install-ChocoPackage python2
 # Node LTS (8.x at the time of writing)
 Install-ChocoPackage nodejs-lts
 
+# Installing Git
+choco install -y git
+ $env:PATH = 'C:\Program Files\Git\cmd;{0}' -f $env:PATH ;
+  [Environment]::SetEnvironmentVariable('PATH', $env:PATH, [EnvironmentVariableTarget]::Machine)
 # Git and friends
 # git-lfs includes git as a dependency so there is no need to install it explicitly
 Install-ChocoPackage git-lfs
 
-# Java 8
-Install-ChocoPackage jdk9
+# Java 10
+Install-ChocoPackage jdk10
 
 # Ruby 2.x
 Install-ChocoPackage ruby
 
 # Google Cloud SDK
 # ignore-checksum is required until https://chocolatey.org/packages/gcloudsdk/0.0.0.20171229 is published
-Install-ChocoPackage gcloudsdk --ignore-checksum
+choco install -y gcloudsdk --version 0.0.0.20171229 --ignore-checksum
 
 # Force UTF-8 for Python because it does not work at all with cp65001
 # gcloud is broken without this fix
@@ -64,3 +68,12 @@ Install-ChocoPackage kubernetes-cli
 
 # Docker client
 Install-ChocoPackage docker
+
+echo "================= Intalling Shippable CLIs ================="
+
+git clone https://github.com/Shippable/node.git nodeRepo
+.\nodeRepo\shipctl\x86_64\WindowsServer_2016\install.ps1
+Remove-Item .\nodeRepo -Force -Recurse
+
+echo "Installed Shippable CLIs successfully"
+echo "-------------------------------------"
