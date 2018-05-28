@@ -64,3 +64,12 @@ Install-ChocoPackage kubernetes-cli
 
 # Docker client
 Install-ChocoPackage docker
+
+echo "================= Intalling Shippable CLIs ================="
+
+git clone https://github.com/Shippable/node.git nodeRepo
+.\nodeRepo\shipctl\x86_64\WindowsServer_2016\install.ps1
+rm -rf nodeRepo
+
+echo "Installed Shippable CLIs successfully"
+echo "-------------------------------------"
