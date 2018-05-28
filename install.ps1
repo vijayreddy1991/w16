@@ -24,7 +24,8 @@ Install-ChocoPackage nodejs-lts
 
 # Installing Git
 choco install -y git
-
+ $env:PATH = 'C:\Program Files\Git\cmd;{0}' -f $env:PATH ;
+  [Environment]::SetEnvironmentVariable('PATH', $env:PATH, [EnvironmentVariableTarget]::Machine)
 # Git and friends
 # git-lfs includes git as a dependency so there is no need to install it explicitly
 Install-ChocoPackage git-lfs
@@ -37,7 +38,7 @@ Install-ChocoPackage ruby
 
 # Google Cloud SDK
 # ignore-checksum is required until https://chocolatey.org/packages/gcloudsdk/0.0.0.20171229 is published
-Install-ChocoPackage gcloudsdk --version 0.0.0.20171229 --ignore-checksum
+choco install -y gcloudsdk --version 0.0.0.20171229 --ignore-checksum
 
 # Force UTF-8 for Python because it does not work at all with cp65001
 # gcloud is broken without this fix
