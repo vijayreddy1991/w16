@@ -22,6 +22,9 @@ Install-ChocoPackage python2
 # Node LTS (8.x at the time of writing)
 Install-ChocoPackage nodejs-lts
 
+# Installing Git
+choco install -y git
+
 # Git and friends
 # git-lfs includes git as a dependency so there is no need to install it explicitly
 Install-ChocoPackage git-lfs
