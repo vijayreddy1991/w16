@@ -28,8 +28,7 @@ Install-ChocoPackage nodejs-lts
 # Installing Git
 Install-ChocoPackage git
 Update-SessionEnvironment
- $env:PATH = 'C:\Program Files\Git\cmd;{0}' -f $env:PATH ;
-  [Environment]::SetEnvironmentVariable('PATH', $env:PATH, [EnvironmentVariableTarget]::Machine)
+ 
 # Git and friends
 # git-lfs includes git as a dependency so there is no need to install it explicitly
 Install-ChocoPackage git-lfs
