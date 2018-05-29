@@ -23,7 +23,10 @@ Install-ChocoPackage python2
 Install-ChocoPackage nodejs-lts
 
 # Installing Git
-choco install -y git
+Install-ChocoPackage git
+$env:ChocolateyInstall = Convert-Path "$((Get-Command choco).path)\..\.."
+Import-Module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+Update-SessionEnvironment
  $env:PATH = 'C:\Program Files\Git\cmd;{0}' -f $env:PATH ;
   [Environment]::SetEnvironmentVariable('PATH', $env:PATH, [EnvironmentVariableTarget]::Machine)
 # Git and friends
