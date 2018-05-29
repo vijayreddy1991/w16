@@ -4,6 +4,9 @@ $ErrorActionPreference = "Stop"
 Set-ExecutionPolicy Bypass -Scope Process -Force
 iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
+$env:ChocolateyInstall = Convert-Path "$((Get-Command choco).path)\..\.."
+Import-Module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+
 function Write-PackageInstall($package) {
   Write-Output ""
   Write-Output "----------------------------------------------"
@@ -23,9 +26,9 @@ Install-ChocoPackage python2
 Install-ChocoPackage nodejs-lts
 
 # Installing Git
-choco install -y git
- $env:PATH = 'C:\Program Files\Git\cmd;{0}' -f $env:PATH ;
-  [Environment]::SetEnvironmentVariable('PATH', $env:PATH, [EnvironmentVariableTarget]::Machine)
+Install-ChocoPackage git
+Update-SessionEnvironment
+ 
 # Git and friends
 # git-lfs includes git as a dependency so there is no need to install it explicitly
 Install-ChocoPackage git-lfs
@@ -72,6 +75,7 @@ Install-ChocoPackage docker
 echo "================= Intalling Shippable CLIs ================="
 
 git clone https://github.com/Shippable/node.git nodeRepo
+Update-SessionEnvironment
 .\nodeRepo\shipctl\x86_64\WindowsServer_2016\install.ps1
 Remove-Item .\nodeRepo -Force -Recurse
 
