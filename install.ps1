@@ -75,6 +75,7 @@ Install-ChocoPackage docker
 echo "================= Intalling Shippable CLIs ================="
 
 git clone https://github.com/Shippable/node.git nodeRepo
+Update-SessionEnvironment
 .\nodeRepo\shipctl\x86_64\WindowsServer_2016\install.ps1
 Remove-Item .\nodeRepo -Force -Recurse
 
