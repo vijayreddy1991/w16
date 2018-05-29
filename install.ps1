@@ -3,8 +3,10 @@ $ErrorActionPreference = "Stop"
 # Install choco
 Set-ExecutionPolicy Bypass -Scope Process -Force
 iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
 $env:ChocolateyInstall = Convert-Path "$((Get-Command choco).path)\..\.."
 Import-Module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+
 function Write-PackageInstall($package) {
   Write-Output ""
   Write-Output "----------------------------------------------"
