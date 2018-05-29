@@ -3,7 +3,8 @@ $ErrorActionPreference = "Stop"
 # Install choco
 Set-ExecutionPolicy Bypass -Scope Process -Force
 iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-
+$env:ChocolateyInstall = Convert-Path "$((Get-Command choco).path)\..\.."
+Import-Module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 function Write-PackageInstall($package) {
   Write-Output ""
   Write-Output "----------------------------------------------"
@@ -24,8 +25,6 @@ Install-ChocoPackage nodejs-lts
 
 # Installing Git
 Install-ChocoPackage git
-$env:ChocolateyInstall = Convert-Path "$((Get-Command choco).path)\..\.."
-Import-Module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 Update-SessionEnvironment
  $env:PATH = 'C:\Program Files\Git\cmd;{0}' -f $env:PATH ;
   [Environment]::SetEnvironmentVariable('PATH', $env:PATH, [EnvironmentVariableTarget]::Machine)
