@@ -40,7 +40,6 @@ Install-ChocoPackage jdk11
 Install-ChocoPackage ruby
 
 # Google Cloud SDK
-# ignore-checksum is required until https://chocolatey.org/packages/gcloudsdk/0.0.0.20171229 is published
 choco install -y gcloudsdk --version 0.0.0.20171229 
 
 # Force UTF-8 for Python because it does not work at all with cp65001
