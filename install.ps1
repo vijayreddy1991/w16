@@ -33,15 +33,14 @@ Update-SessionEnvironment
 # git-lfs includes git as a dependency so there is no need to install it explicitly
 Install-ChocoPackage git-lfs
 
-# Java 10
-Install-ChocoPackage jdk10
+# Java 11
+Install-ChocoPackage jdk11
 
 # Ruby 2.x
 Install-ChocoPackage ruby
 
 # Google Cloud SDK
-# ignore-checksum is required until https://chocolatey.org/packages/gcloudsdk/0.0.0.20171229 is published
-choco install -y gcloudsdk --version 0.0.0.20171229 --ignore-checksum
+choco install -y gcloudsdk --version 0.0.0.20171229 
 
 # Force UTF-8 for Python because it does not work at all with cp65001
 # gcloud is broken without this fix
