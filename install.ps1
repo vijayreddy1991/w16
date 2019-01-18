@@ -34,7 +34,7 @@ Update-SessionEnvironment
 Install-ChocoPackage git-lfs
 
 # Java 11
-Install-ChocoPackage jdk11
+Install-ChocoPackage openjdk
 
 # Ruby 2.x
 Install-ChocoPackage ruby
