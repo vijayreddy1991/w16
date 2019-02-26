@@ -6,7 +6,7 @@ jobs:
     steps:
       - TASK: 
          script:
-         - git clone https://github.com/vijayreddy1991/w16.git
+         - git clone https://github.com/dry-dock/w16.git
          - dir
          - cd w16
          - dir
