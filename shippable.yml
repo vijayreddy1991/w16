@@ -1,16 +1,25 @@
+resource
+  - name: myGitrepo
+    type: gitRepo
+    integration: github
+    versionTemplate:     
+      sourceName: vijayreddy1991/w16
+      branch: test
+    buildOnCommit: true
+    buildOnTagPush: false
+    
 jobs:
   - name: window2016
     type: runSh
     runtime:
-      nodePool: dynamic__x86_64__WindowsServer_2016__c4_large 
+      nodePool: dynamic__x86_64__WindowsServer_2016__c4_large
     steps:
+      - IN: myGitrepo
       - TASK: 
          script:
-         - git clone https://github.com/dry-dock/w16.git
-         - dir
-         - cd w16
-         - dir
-         - docker build -t drydockw16test:master .
+         - pushd $(shipctl get_resource_state "myGitrepo")
+         - docker build -t=drydockw16test:master .
+         - popd
       
       - TASK:
           runtime:
