@@ -19,8 +19,7 @@ jobs:
          script:
          - pushd $(shipctl get_resource_state "myGitrepo")
          - dir
-         - docker build -t drydockw16test:master -f C:\Users\Administrator\Shippable\Runtime\8a5956d6-9831-4a47-ab95
-    -fcef53a6d0fc\build\IN\myGitrepo\gitRepo\Dockerfile .
+         - docker build -t drydockw16test:master -f .\Dockerfile .
          - popd
       
       - TASK:
