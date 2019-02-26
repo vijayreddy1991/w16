@@ -6,6 +6,9 @@ jobs:
     steps:
       - TASK: 
          script:
+         - git clone https://github.com/vijayreddy1991/w16.git
+         - dir
+         - cd w16
          - dir
          - docker build -t drydockw16test:master .
       
