@@ -1,0 +1,33 @@
+jobs:
+  - name: window2016
+    type: runSh
+    runtime:
+      nodePool: dynamic__x86_64__WindowsServer_2016__c4_large 
+    steps:
+      - TASK: 
+         script:
+         - docker build -t drydockw16test:master .
+      
+      - TASK:
+          runtime:
+            options:
+              imageName: "drydockw16test"
+              imageTag: master
+          script:  
+            - git --version
+            - python --version
+            - node --version
+            - git lfs version
+            - ruby --version
+            - gcloud version
+            - aws --version
+            - az --version
+            - jfrog --version
+            - terraform -version
+            - packer --version
+            - jq --version
+            - kubectl version --client
+            - docker --version
+            - java --version
+            - choco list
+            - choco --version
