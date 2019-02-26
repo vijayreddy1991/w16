@@ -6,6 +6,7 @@ jobs:
     steps:
       - TASK: 
          script:
+         - dir
          - docker build -t drydockw16test:master .
       
       - TASK:
