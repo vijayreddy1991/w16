@@ -18,6 +18,7 @@ jobs:
       - TASK: 
          script:
          - pushd $(shipctl get_resource_state "myGitrepo")
+         - dir
          - docker build -t=drydockw16test:master .
          - popd
       
