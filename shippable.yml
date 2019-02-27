@@ -19,7 +19,7 @@ jobs:
          script:
          - pushd $(shipctl get_resource_state "myGitrepo")
          - dir
-         - "docker build -t drydockw16test:master -f ./Dockerfile ."
+         - docker build -t drydockw16test:master -f ./Dockerfile --pull .
          - popd
       
       - TASK:
