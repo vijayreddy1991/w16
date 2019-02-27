@@ -13,6 +13,7 @@ jobs:
     type: runSh
     runtime:
       nodePool: dynamic__x86_64__WindowsServer_2016__c4_large
+      container: false 
     steps:
       - IN: myGitrepo
       - TASK: 
