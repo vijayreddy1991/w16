@@ -28,9 +28,6 @@ Install-ChocoPackage nodejs-lts
 # Installing Git
 Install-ChocoPackage git
 Update-SessionEnvironment
- 
-$ENV:PATH = 'C:\Program Files\Git\bin;' + $env:PATH
-
 
 # Java 11
 Install-ChocoPackage jdk11
