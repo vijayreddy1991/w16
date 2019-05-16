@@ -25,6 +25,8 @@ Install-ChocoPackage python2
 # Node LTS (8.x at the time of writing)
 Install-ChocoPackage nodejs-lts
 
+Install-ChocoPackage nodejs-lts --version 8.16.0
+
 # Installing Git
 Install-ChocoPackage git
 Update-SessionEnvironment
